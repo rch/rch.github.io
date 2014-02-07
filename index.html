@@ -31,7 +31,10 @@
   </script>
   <!-- end Mixpanel -->
 </head>
-<body onload="mixpanel.track("index");">
+<script type="text/javascript">
+    mixpanel.track("index-loaded");
+</script>
+<body>
   <div class="section header">
     <div class="w-container">
       <div class="w-row">

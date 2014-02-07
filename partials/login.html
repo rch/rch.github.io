@@ -1,0 +1,43 @@
+<div class="main-section">
+    <div class="w-container">
+      <div class="w-row page-header">
+        <div class="w-col w-col-6">
+          <h4><a class="rch-nav-link" href="#/home">Home</a> / Login</h4>
+        </div>
+        <div class="w-col w-col-6"></div>
+      </div>
+    </div>
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-6">
+          <div class="w-form">
+            <form name="email-form" data-name="Email Form">
+              <label for="email">Email Address:</label>
+              <input ng-model="email" class="w-input" type="email" placeholder="Enter your email address" name="email" data-name="Email" required="required"></input>              
+              <label for="password">Password:</label>
+              <input ng-model="pass" class="w-input" type="password" placeholder="Enter your password" name="password" required="required" data-name="Password"></input>
+              <label ng-cloak ng-show="createMode" for="passwordconirm">
+                <span>Confirm Password:</span>
+                <input ng-model="confirm" class="w-input" type="password" placeholder="Enter your password again" name="passwordconirm" required="required" data-name="PasswordConirm"></input>
+              </label>
+              <input ng-click="login()" ng-hide="createMode" class="button" type="submit" value="Log In" data-wait="Please wait..."></input>
+              <input ng-click="createMode = true" ng-hide="createMode" class="button" type="submit" value="Register" data-wait="Please wait..."></input>
+              <input ng-cloak ng-show="createMode" ng-click="createAccount()"  class="button" type="submit" value="Create Account" data-wait="Please wait..."></input>
+              <input ng-cloak ng-show="createMode" ng-click="createMode = false"  class="button" type="submit" value="Cancel" data-wait="Please wait..."></input>
+              <p ng-show="err" class="error">{{err}}</p>
+            </form>
+            <div class="w-form-done">
+              <p>Thank you! Your submission has been received!</p>
+            </div>
+            <div class="w-form-fail">
+              <p>Oops! Something went wrong while submitting the form :(</p>
+            </div>
+          </div>
+        </div>
+        <div class="w-col w-col-6"></div>
+      </div>
+    </div>
+</div>
+<script type="text/javascript">
+    mixpanel.track("loaded-login");
+</script>

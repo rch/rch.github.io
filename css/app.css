@@ -1,5 +1,10 @@
 /* app css stylesheet */
 
+body:after{
+    display:none;
+    content: url(Flatirons-1600x650.png) url(Flatirons-991x415.jpg) url(672309main_M107_991x335.jpg) url(672309main_M107_full.jpg);
+}
+
 .hide {
    display: none;
 }

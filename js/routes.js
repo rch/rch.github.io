@@ -11,8 +11,9 @@ angular.module('myApp.routes', ['ngRoute'])
       });
 
       $routeProvider.when('/contact', {
+    	 authRequired: true, // must authenticate before viewing this page
          templateUrl: 'partials/contact.html',
-         controller: 'ChatCtrl'
+         controller: 'ContactCtrl'
       });
 
       $routeProvider.when('/projects', {

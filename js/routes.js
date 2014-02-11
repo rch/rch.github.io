@@ -15,7 +15,13 @@ angular.module('myApp.routes', ['ngRoute'])
          templateUrl: 'partials/contact.html',
          controller: 'ContactCtrl'
       });
-
+      
+      $routeProvider.when('/details', {
+          authRequired: true, // must authenticate before viewing this page
+          templateUrl: 'partials/details.html',
+          controller: 'DetailsCtrl'
+       });
+      
       $routeProvider.when('/projects', {
           authRequired: true, // must authenticate before viewing this page
           templateUrl: 'partials/projects.html',

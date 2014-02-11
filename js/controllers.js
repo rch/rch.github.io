@@ -82,6 +82,11 @@ angular.module('myApp.controllers', [])
       }
    }])
    
+   .controller('DetailsCtrl', ['$scope', 'loginService', 'syncData', '$location','$window', function($scope, loginService, syncData, $location, $window) {
+	   $window.mixpanel.track('ctrl-details');
+	      syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
+   }])
+   
    .controller('ProjectsCtrl', ['$scope', 'loginService', 'syncData', '$location','$window', function($scope, loginService, syncData, $location, $window) {
 	   $window.mixpanel.track('ctrl-projects');
 	      syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');

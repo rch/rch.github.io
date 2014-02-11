@@ -3,11 +3,13 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-   .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
+   .controller('HomeCtrl', ['$scope', 'syncData', '$window', function($scope, syncData, $window) {
+	  $window.mixpanel.track('ctrl-home');
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])
   
-  .controller('ChatCtrl', ['$scope', 'syncData', function($scope, syncData) {
+  .controller('ChatCtrl', ['$scope', 'syncData', '$window', function($scope, syncData, $window) {
+	  $window.mixpanel.track('ctrl-contact');
       $scope.newMessage = null;
 
       // constrain number of messages by limit into syncData
@@ -23,12 +25,13 @@ angular.module('myApp.controllers', [])
       };
    }])
 
-   .controller('LoginCtrl', ['$scope', 'loginService', '$location', function($scope, loginService, $location) {
+   .controller('LoginCtrl', ['$scope', 'loginService', '$location','$window', function($scope, loginService, $location, $window) {
+	  $window.mixpanel.track('ctrl-projects');
       $scope.email = null;
       $scope.pass = null;
       $scope.confirm = null;
       $scope.createMode = false;
-
+      
       $scope.login = function(cb) {
          $scope.err = null;
          if( !$scope.email ) {
@@ -79,11 +82,13 @@ angular.module('myApp.controllers', [])
       }
    }])
    
-   .controller('ProjectsCtrl', ['$scope', 'loginService', 'syncData', '$location', function($scope, loginService, syncData, $location) {
+   .controller('ProjectsCtrl', ['$scope', 'loginService', 'syncData', '$location','$window', function($scope, loginService, syncData, $location, $window) {
+	   $window.mixpanel.track('ctrl-projects');
 	      syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
    }])
       
-   .controller('AccountCtrl', ['$scope', 'loginService', 'syncData', '$location', function($scope, loginService, syncData, $location) {
+   .controller('AccountCtrl', ['$scope', 'loginService', 'syncData', '$location', '$window', function($scope, loginService, syncData, $location, $window) {
+	   $window.mixpanel.track('ctrl-account');
       syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
 
       $scope.logout = function() {

@@ -1,8 +1,8 @@
 
 angular.module('myApp.service.login', ['firebase', 'myApp.service.firebase'])
 
-   .factory('loginService', ['$rootScope', '$firebaseSimpleLogin', 'firebaseRef', 'profileCreator', '$timeout',
-      function($rootScope, $firebaseSimpleLogin, firebaseRef, profileCreator, $timeout) {
+   .factory('loginService', ['$window','$rootScope', '$firebaseSimpleLogin', 'firebaseRef', 'profileCreator', '$timeout',
+      function($window, $rootScope, $firebaseSimpleLogin, firebaseRef, profileCreator, $timeout) {
          var auth = null;
          return {
             init: function() {
@@ -16,6 +16,7 @@ angular.module('myApp.service.login', ['firebase', 'myApp.service.firebase'])
              * @returns {*}
              */
             login: function(email, pass, callback) {
+        		$window.mixpanel.track('auth-login');
                assertAuth();
                auth.$login('password', {
                   email: email,

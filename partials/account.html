@@ -25,6 +25,9 @@
               <p>Oops! Something went wrong while submitting the form :(</p>
             </div>
           </div>
+            <div>
+                <input ng-click="logout()" class="button" type="submit" value="Log Out" data-wait="Please wait..."></input>
+            </div>
         </div>
         <div class="w-col w-col-4">
           <div class="w-form">
@@ -49,8 +52,21 @@
           </div>
         </div>
         <div class="w-col w-col-4">
-          <h4>Actions</h4>
-          <input ng-click="logout()" class="button" type="submit" value="Log Out" data-wait="Please wait..."></input>
+          <h4>Add Membership</h4>
+          <div class="w-form">
+                <form action="" method="POST" id="payment-form">
+                  <span class="payment-errors"></span>
+                  <label>Card Number</label>
+                  <input class="w-input" type="text" size="20" data-stripe="number"/>
+                  <label>CVC</label>
+                  <input class="w-input" type="text" size="4" data-stripe="cvc"/>    
+                  <label>Expiration Month (MM)</label>
+                  <input class="w-input" type="text" size="2" data-stripe="exp-month"/>
+                  <label>Expiration Year (YYYY)</label>
+                  <input class="w-input" type="text" size="4" data-stripe="exp-year"/>
+                  <input ng-click="" class="button" type="submit" value="Submit Payment" data-wait="Please wait..."></input>
+                </form>
+            </div>
         </div>
       </div>
     </div>

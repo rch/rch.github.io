@@ -29,6 +29,10 @@
     mixpanel.init("d0745056d4868b3ddeb3c9c16b30e7ab");
   </script>
   <!-- end Mixpanel -->
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript">
+    Stripe.setPublishableKey('pk_test_XUY95utFYPklLx45LCsiXSL3');
+  </script>
 </head>
 <body>
   <div class="section header">
@@ -80,6 +84,7 @@
   <script src="./js/service.firebase.js"></script>
   <script src="./js/module.waitForAuth.js"></script>
   <script src="./js/module.routeSecurity.js"></script>
+  <script src="./js/module.stripe.js"></script>
   <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  -->
   <!-- <script type="text/javascript" src="js/webflow.js"></script> -->
   <script type="text/javascript">
